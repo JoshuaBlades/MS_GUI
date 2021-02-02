@@ -1,0 +1,7 @@
+﻿Have a look at if the textbox can get too full. <- code for this in other proj 
+
+Add are you sure to stop. 
+
+Do teleport command - look into popup window
+
+Add more error handling

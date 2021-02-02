@@ -1,0 +1,97 @@
+﻿<Window x:Class="MS_GUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MS_GUI"
+        mc:Ignorable="d"
+        Title="Minecraft Server" SizeToContent="WidthAndHeight"
+        ResizeMode="NoResize"
+        Closing="Window_Closing"
+        Background="#171717">
+    <Grid Name="MainGrid" Width="1160" >
+        <ComboBox Name="RAMCB" IsEnabled="True" Margin="424,313,504,351">
+            <ComboBoxItem Content="1024M"/>
+            <ComboBoxItem Content="2048M"/>
+            <ComboBoxItem Content="3072M"/>
+            <ComboBoxItem Content="4096M"/>
+            <ComboBoxItem Content="5120M"/>
+            <ComboBoxItem Content="6144M"/>
+        </ComboBox>
+        <Button Name="StartButton" Content="Start" Click="GoButton_Click" Margin="481,390,557,257" FontSize="16"/>
+        <Label Name="StartUpLabel" Content="Please select RAM amount" HorizontalAlignment="Left" Margin="365,239,0,0" VerticalAlignment="Top" Foreground="#c7c7c7" FontSize="30"/>
+        <TextBox Name ="InfoTextBox" Foreground="#c7c7c7" HorizontalAlignment="Left" Margin="720,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="415" Height="538" ScrollViewer.CanContentScroll="True" IsReadOnly="True" ScrollViewer.VerticalScrollBarVisibility="Auto" TextChanged="InfoTextBox_TextChanged" BorderThickness="1" Background="#2e2e2e" FontSize="14"/>
+        <TextBox Name="SayTextBox" HorizontalAlignment="Left" Foreground="#c7c7c7" Margin="18,464,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="271" TextChanged="TextBox_TextChanged" KeyDown="SayTextBox_KeyDown" Height="33" Background="#2e2e2e" FontSize="23"/>
+        <Label Name="SayLabel" Content="Chat" Foreground="#c7c7c7" HorizontalAlignment="Left" Margin="128,415,0,0" VerticalAlignment="Top" Width="59" Height="41" FontSize="24"/>
+        <TextBox Name="PlayersTextBox" HorizontalAlignment="Left" Margin="18,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="271" Height="281" IsReadOnly="True" Background="#2e2e2e" Foreground="#c7c7c7" FontSize="30" ScrollViewer.CanContentScroll="True" TextChanged="PlayersTextBox_TextChanged" Cursor="Hand" PreviewMouseLeftButtonDown="PlayersTextBox_MouseLeftButtonDown"/>
+        <Label Name="PlayersLabel" Content="Players Online" HorizontalAlignment="Left" Margin="74,28,0,0" VerticalAlignment="Top" Height="44" Width="166" Foreground="#c7c7c7" FontSize="24"/>
+
+
+        <Border Name="DiffBorder" BorderThickness="0.5" BorderBrush="#c7c7c7" Margin="336,130,491,458"/>
+        <Button Name="DiffPeaceButton" Content="Peaceful" HorizontalAlignment="Left" Margin="339,196,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="DiffPeaceButton_Click" FontSize="16"/>
+        <Label Name="DifficultyLabel" Content="Difficulty" HorizontalAlignment="Left" Margin="439,128,0,0" VerticalAlignment="Top" Height="55" Width="140" FontSize="32" Foreground="#c7c7c7"/>
+        <Button x:Name="DiffNormButton" Content="Normal" HorizontalAlignment="Left" Margin="507,196,0,0" VerticalAlignment="Top" Width="76" Height="30" Click="DiffNormButton_Click" FontSize="16"/>
+        <Label Name="FocusLabel" Content="" HorizontalAlignment="Left" Margin="18,666,0,0" VerticalAlignment="Top" Focusable="True" FocusVisualStyle="{x:Null}" Height="26" Width="10"/>
+        <Label Name="LogLabel" Content="Server Log" Foreground="#c7c7c7" FontSize="24" HorizontalAlignment="Left" Margin="866,28,0,0" VerticalAlignment="Top" Height="42" Width="122"/>
+
+
+        <Button x:Name="DiffEasy" Content="Easy" HorizontalAlignment="Left" Margin="423,196,0,0" VerticalAlignment="Top" Width="76" Height="30" Click="DiffEasy_Click" FontSize="16"/>
+        <Button x:Name="DiffHard" Content="Hard" HorizontalAlignment="Left" Margin="590,196,0,0" VerticalAlignment="Top" Width="76" Height="30" Click="DiffHard_Click" FontSize="16"/>
+        <TextBox x:Name="ComTextBox" HorizontalAlignment="Left" Foreground="#c7c7c7" Margin="720,648,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="415" TextChanged="TextBox_TextChanged" KeyDown="ComTextBox_KeyDown" Height="33" Background="#2e2e2e" FontSize="23"/>
+
+
+        <Label x:Name="Weather" Content="Weather" HorizontalAlignment="Left" Margin="442,261,0,0" VerticalAlignment="Top" Height="55" Width="134" FontSize="32" Foreground="#c7c7c7"/>
+        <Border x:Name="WeaBorder" BorderThickness="0.5" BorderBrush="#c7c7c7" Margin="336,263,491,325"/>
+        <Button x:Name="WeaClearButton" Content="Clear" HorizontalAlignment="Left" Margin="343,0,0,0" VerticalAlignment="Center" Width="76" Height="30" Click="WeaClearButton_Click" FontSize="16"/>
+        <Button x:Name="WeaRainButton" Content="Rain" HorizontalAlignment="Left" Margin="465,0,0,0" VerticalAlignment="Center" Width="76" Height="30" Click="WeaRainButton_Click" FontSize="16"/>
+        <Button x:Name="WeaThunButton" Content="Thunder" HorizontalAlignment="Left" Margin="586,0,0,0" VerticalAlignment="Center" Width="76" Height="30" Click="WeaThunButton_Click" FontSize="16"/>
+
+
+        <Button Name="SaveButton" Content="Save All" HorizontalAlignment="Left" Margin="18,550,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.505,1.405" Height="44" Width="99" Click="SaveButton_Click" FontSize="16"/>
+        <Button x:Name="ReloadButton" Content="Reload" HorizontalAlignment="Left" Margin="191,550,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.505,1.405" Height="44" Width="98" Click="ReloadButton_Click" FontSize="16"/>
+        <Border Name="PlayerBorder" BorderThickness="1" Margin="310,61,460,254" BorderBrush="#c7c7c7" Visibility="Hidden"/>
+
+
+        <Label x:Name="GMLabel" Content="Game Mode" HorizontalAlignment="Left" Margin="409,164,0,0" VerticalAlignment="Top" Height="55" Width="187" FontSize="32" Foreground="#c7c7c7" Visibility="Hidden"/>
+        <Border x:Name="Gamemode" BorderThickness="0.5" BorderBrush="#c7c7c7" Margin="336,166,491,422" Visibility="Hidden"/>
+        <Button x:Name="GMCreative" Content="Creative" HorizontalAlignment="Left" Margin="376,232,0,0" VerticalAlignment="Top" Width="76" Height="30" Click="GMCreative_Click" Visibility="Hidden" FontSize="16"/>
+        <Button x:Name="GMSurvival" Content="Survival" HorizontalAlignment="Center" Margin="0,232,0,0" VerticalAlignment="Top" Width="76" Height="30" Click="GMSurvival_Click" Visibility="Hidden" FontSize="16"/>
+
+        <Button x:Name="KickButton" Content="Kick" HorizontalAlignment="Left" Margin="407,311,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.505,1.405" Height="33" Width="80" Click="KickButton_Click" Visibility="Hidden" FontSize="16"/>
+        <Button x:Name="BanButton" Content="Ban" HorizontalAlignment="Left" Margin="514,311,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.505,1.405" Height="33" Width="80" Click="BanButton_Click" Visibility="Hidden" FontSize="16"/>
+
+
+
+
+
+
+
+        <Label Name="SelectedUserLabel" HorizontalAlignment="Left" Margin="447,61,0,0" VerticalAlignment="Top" Foreground="#c7c7c7" FontSize="40" Visibility="Hidden">
+            <TextBlock Name="SelectedUserTextBlock" Text=""/>
+        </Label>
+
+
+        <Button Name="PlayerDoneButton" Content="Done" HorizontalAlignment="Left" Margin="441,384,0,0" VerticalAlignment="Top" Height="38" Width="119" Click="PlayerDoneButton_Click" Visibility="Hidden" FontSize="16"/>
+        <Button Name="StopButton" Content="Stop" HorizontalAlignment="Left" Margin="94,615,0,0" VerticalAlignment="Top" Height="46" Width="125" Click="StopButton_Click" FontSize="16"/>
+
+
+
+        <Border x:Name="TimeBorder" BorderThickness="0.5" BorderBrush="#c7c7c7" Margin="336,400,491,188"/>
+        <Button x:Name="TimeNight" Content="Night" HorizontalAlignment="Left" Margin="554,466,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="TimeNight_Click" FontSize="16"/>
+        <Label x:Name="TimeLabel" Content="Time" HorizontalAlignment="Left" Margin="464,398,0,0" VerticalAlignment="Top" Height="55" Width="84" FontSize="32" Foreground="#c7c7c7"/>
+        <Button x:Name="TimeDay" Content="Day" HorizontalAlignment="Left" Margin="385,466,0,0" VerticalAlignment="Top" Width="76" Height="30" Click="TimeDay_Click" FontSize="16"/>
+        <Label x:Name="GenLabel" Content="General Commands" HorizontalAlignment="Left" Margin="398,64,0,0" VerticalAlignment="Top" Height="44" Width="222" Foreground="#c7c7c7" FontSize="24"/>
+
+        <Label x:Name="ProcStatsLabel" Content="Process Stats" HorizontalAlignment="Left" Margin="400,535,0,0" VerticalAlignment="Top" Height="55" Width="192" FontSize="32" Foreground="#c7c7c7"/>
+        <Label x:Name="RamStatsLabel" Content="RAM Usage" HorizontalAlignment="Left" Margin="372,597,0,0" VerticalAlignment="Top" Height="42" Width="96" FontSize="16" Foreground="#c7c7c7"/>
+        <Label x:Name="RamLabelBlock" HorizontalAlignment="Left" Margin="378,645,0,0" VerticalAlignment="Top" Height="31" Width="108" FontSize="16" Foreground="#c7c7c7">
+            <TextBlock Name="RamStatsTextBlock" FontSize="18" Foreground="#c7c7c7" Text="" Width="96"/>
+        </Label>
+
+        <Label x:Name="CpuStatsLabel" Content="CPU Usage" HorizontalAlignment="Center" Margin="0,596,0,0" VerticalAlignment="Top" Height="42" Width="96" FontSize="16" Foreground="#c7c7c7"/>
+        <Label x:Name="CpuLabelBlock" HorizontalAlignment="Left" Margin="546,644,0,0" VerticalAlignment="Top" Height="42" Width="74" FontSize="16" Foreground="#c7c7c7">
+            <TextBlock Name="cpuStatsTextBlock" FontSize="18" Foreground="#c7c7c7" Text="" Width="65"/>
+        </Label>
+    </Grid>
+</Window>
+
