@@ -55,13 +55,10 @@ namespace MS_GUI
                 // Get the ouput data and send it to the user
                 server.OutputDataReceived += new DataReceivedEventHandler(GetServerOutput);
 
-                // server.ErrorDataReceived += (s, e) => mainWindow.InfoTextBox.Text = e.Data;
-
                 // Start the server
                 server.Start();
                 server.BeginOutputReadLine();
                 ProcStats();
-                //server.BeginErrorReadLine();
                 server.WaitForExit();
             });
         }
@@ -98,7 +95,7 @@ namespace MS_GUI
                 string userName = outInfo.Data.Split('<', '>')[1].Trim();
                 string message = outInfo.Data.Split('>')[1].Trim();
 
-                // Secret danny commands shhh
+                // Secret commands for individual users who are not server host
                 if (userName == "Dauttu" && message.StartsWith(@"\"))
                 {
                     SendCommand(message.Remove(0, 1));
@@ -186,39 +183,6 @@ namespace MS_GUI
                     mainWindow.InfoTextBox.Text += outInfo.Data + "\n";
                 });
             }
-        }
-
-
-        /// <summary>
-        /// LEGACY
-        /// Secret commands for danny to modify server without being server host.
-        /// Danny has been give the option to use ALL commands. 
-        /// </summary>
-        /// <param name="inCommand"></param>
-        /// <returns></returns>
-        private string DauttuCommands(string inCommand)
-        {
-            //switch (inCommand)
-            //{
-            //    case @"\wish i could fly":
-            //        return "/gamemode creative Dauttu";
-            //    case @"\wish i could fight":
-            //        return "/gamemode survival Dauttu";
-            //    case @"\its lagging":
-            //        return "/reload";
-            //    case @"\too scary":
-            //        return "/difficulty peaceful";
-            //    case @"\rainraingoaway":
-            //        return "/weather clear";
-            //    case @"\sun":
-            //        return "/time set day";
-            //    case @"\moon":
-            //        return "/time set night";           
-            //    default:
-            //        break;
-
-            //}
-            return inCommand.Remove(0, 1);
         }
 
         /// <summary>
